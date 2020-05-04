@@ -1,16 +1,26 @@
 <nav class="global-nav">
       <div class="container">
-        <div class="navigation">
-          <ul class="left-actions">
-            <li class="nav-item">
-              <%= link_to "ホーム", root_path, class: "nav-link" %>
-            </li>
-          </ul>
-          <ul class="right-actions">
-            <li class="nav-item">
-              <%= link_to "ツイート", "#", class: "btn btn-info tweet-btn" %>
-            </li>
-          </ul>
-        </div>
+        <% if user_signed_in? %>
+          <div class="navigation">
+            <ul class="left-actions">
+              <li class="nav-item">
+                <%= link_to "ホーム", root_path, class: "nav-link" %>
+              </li>
+            </ul>
+            <ul class="right-actions">
+              <li class="nav-item">
+                <%= link_to "ツイート", "#", class: "btn btn-info tweet-btn" %>
+              </li>
+            </ul>
+          </div>
+          <% else %>
+          <div class="navigation">
+            <ul class="left-actions">
+              <li class="nav-item">
+                <%= link_to "ツイッターアプリ", "#", class: "nav-brand" %>
+              </li>
+            </ul>
+          </div>
+        <% end %>
       </div>
     </nav>
