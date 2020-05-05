@@ -14,7 +14,14 @@
           </div>
           <div class="tweet-text">
             <%= safe_join(tweet.text.split("\n"), tag(:br)) %>
-            <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
+            <div class="delete-edit-button">
+              <%= link_to "/tweets/#{tweet.id}/edit" do %>
+                  <i class="far fa-edit fa-lg"></i>
+              <% end %>
+              <%= link_to "/tweets/#{tweet.id}", method: :delete do %>
+                  <i class="far fa-trash-alt fa-lg"></i>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

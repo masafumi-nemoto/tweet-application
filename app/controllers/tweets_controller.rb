@@ -12,7 +12,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
-      redirect_to root_path
+      redirect_to "/"
       flash[:notice] = "ツイートを送信しました。"
     else
       redirect_to new_tweet_path
@@ -20,11 +20,25 @@ class TweetsController < ApplicationController
     end
   end
 
-    def destroy
-      tweet = Tweet.find(params[:id])
-      tweet.destroy
-      redirect_to root_path
+  def destroy
+    tweet = Tweet.find(params[:id])
+    tweet.destroy
+    redirect_to "/"
+  end
+
+  def edit
+    @tweet = Tweet.find(params[:id])
+  end
+
+  def update
+    @tweet = Tweet.find_by(id: params[:id])
+    if @tweet.update_attributes(tweet_params)
+      redirect_to "/"
+    else
+      render action: :edit
     end
+  end
+
 
   private
     def tweet_params
