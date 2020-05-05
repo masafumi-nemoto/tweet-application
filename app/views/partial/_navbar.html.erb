@@ -2,24 +2,18 @@
   <div class="container">
     <% if user_signed_in? %>
       <div class="navigation">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
         <ul class="left-actions">
           <li class="nav-item">
             <%= link_to "ホーム", root_path, class: "nav-link" %>
           </li>
         </ul>
         <ul class="right-actions">
-
-          <li class="nav-item dropdown">
-            <%= link_to "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", role: "button", "data-toggle": :dropdown, "aria-haspopup": :true, "aria-expanded": false do %>
-              <%= image_tag current_user.profile_photo, class: "avatar avatar-size32" %>
-            <% end %>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
-          </li>
-
           <li class="nav-item">
             <%= link_to "ツイート", new_tweet_path, class: "btn btn-primary tweet-btn" %>
+          </li>
+          <li class="navigation">
+            <%# <%= link_to "ユーザー情報編集", edit_user_registration_path, class: "nav-link" %>
           </li>
         </ul>
       </div>
