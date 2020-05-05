@@ -14,6 +14,7 @@
           </div>
           <div class="tweet-text">
             <%= safe_join(tweet.text.split("\n"), tag(:br)) %>
+            <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
           </div>
         </div>
       </div>
