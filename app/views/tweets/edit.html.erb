@@ -3,7 +3,7 @@
     編集する
   </div>
   <div class="card-body">
-    <%= form_with url:"/tweets/" + @tweet.id.to_s, method: :patch, local: true,  model: @tweet do |f| %>
+    <%= form_with url:"/tweets/" + @tweet.id.to_s, method: :patch, local: true, model: @tweet do |f| %>
       <div class="tweet-body">
         <%= image_tag current_user.profile_photo, class: "avatar avatar-size32" %>
         <%= f.text_area :text, placeholder: "いまどうしてる？", class: "form-control", rows: "3" %>
